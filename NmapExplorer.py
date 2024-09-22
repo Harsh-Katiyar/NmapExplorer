@@ -1,5 +1,4 @@
 import os
-import re
 import platform
 import requests
 import zipfile
@@ -64,48 +63,9 @@ def prompt_for_download():
         print("Skipping download and configuration.")
         return None
 
-# Main function
-def main():
-    current_os = detect_os()
-    default_search_path = None
-
-    # Set default search path for Linux
-    if current_os == 'linux':
-        default_search_path = os.path.expanduser('/usr/share/nmap')  # Update with your Nmap scripts path
-        print(f"Default search path set to: {default_search_path}")
-
-    # Prompt for download and configure
-    extract_path = prompt_for_download()
-
-    # Decide search path
-    if not extract_path:
-        if default_search_path:
-            use_default = input(f"Would you like to search in the default Nmap script folder ({default_search_path})? (y/n): ").lower()
-            if use_default == 'y':
-                file_path = default_search_path
-            else:
-                while True:
-                    file_path = input("Enter the full path of the directory to search in: ").strip()
-                    if os.path.isdir(file_path):
-                        break
-                    else:
-                        print(f"{Colors.FAIL}Invalid directory. Please try again.{Colors.ENDC}")
-        else:
-            file_path = input("Enter the full path of the directory to search in: ").strip()
-
-        file_name = input("Enter the file name to search for: ").strip()
-        print(f"\nSearching for file '{file_name}' in '{file_path}'...\n")
-        results = search_file_in_directory(file_path, file_name)
-
-    else:
-        file_name = input("Enter the file name to search: ").strip()
-        print(f"\nSearching for file '{file_name}' in the extracted folder...\n")
-        results = search_file_in_directory(extract_path, file_name)
-
-    display_choice = input("How would you like to display the results? (1: Full Paths, 2: File Names Only): ").strip()
-    show_full_path = display_choice == '1'
-
-    display_results(results, show_full_path)
+def prompt_for_file_name():
+    print(f"{Colors.OKBLUE}Please enter the file name to search for (e.g., 'example.txt'){Colors.ENDC}")
+    return input("File name: ").strip()
 
 # Function to display results in a tabular format based on user choice
 def display_results(results, show_full_path):
@@ -120,7 +80,55 @@ def display_results(results, show_full_path):
         print("\nSearch Results:")
         print(tabulate(table_data, headers=headers, tablefmt="grid"))
     else:
-        print("No matches found.")
+        print(f"{Colors.WARNING}No matches found.{Colors.ENDC}")
+
+# Main function
+def main():
+    current_os = detect_os()
+    default_search_path = None
+
+    # Set default search path for Linux
+    if current_os == 'linux':
+        default_search_path = os.path.expanduser('/usr/share/nmap')  # Update with your Nmap scripts path
+        print(f"Default search path set to: {default_search_path}")
+
+    # Prompt for download and configure
+    extract_path = prompt_for_download()
+
+    # Use default or user-defined search path
+    if not extract_path:
+        if default_search_path:
+            use_default = input(f"Would you like to search in the default Nmap script folder ({default_search_path})? (y/n): ").lower()
+            if use_default == 'y':
+                file_path = default_search_path
+            else:
+                while True:
+                    file_path = input("Enter the full path of the directory to search in: ").strip()
+                    if os.path.isdir(file_path):
+                        break
+                    else:
+                        print(f"{Colors.FAIL}Invalid directory. Please try again.{Colors.ENDC}")
+        else:
+            file_path = input("Enter the full path of the directory to search in: ").strip()
+    else:
+        file_path = extract_path  # Use the extracted path
+
+    while True:  # Loop to allow re-searching
+        # Prompt for file name
+        file_name = prompt_for_file_name()
+        print(f"\nSearching for file '{file_name}' in '{file_path}'...\n")
+        results = search_file_in_directory(file_path, file_name)
+
+        display_choice = input("How would you like to display the results? (1: Full Paths, 2: File Names Only): ").strip()
+        show_full_path = display_choice == '1'
+
+        display_results(results, show_full_path)
+
+        # Ask user if they want to search again or exit
+        continue_search = input("Would you like to search again? (y/n): ").lower()
+        if continue_search != 'y':
+            print(f"{Colors.OKGREEN}Exiting the tool. Goodbye!{Colors.ENDC}")
+            break
 
 if __name__ == "__main__":
     main()
