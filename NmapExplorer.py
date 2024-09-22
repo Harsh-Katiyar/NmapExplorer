@@ -71,7 +71,7 @@ def main():
 
     # Set default search path for Linux
     if current_os == 'linux':
-        default_search_path = os.path.expanduser('~/.nmap/scripts')  # Update with your Nmap scripts path
+        default_search_path = os.path.expanduser('/usr/share/nmap')  # Update with your Nmap scripts path
         print(f"Default search path set to: {default_search_path}")
 
     # Prompt for download and configure
