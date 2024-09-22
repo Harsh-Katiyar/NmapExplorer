@@ -8,9 +8,6 @@ NmapExplorer is a powerful network scanning tool that leverages the capabilities
 - [Installation](#installation)
 - [Usage](#usage)
 - [Example](#example)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Features
 
