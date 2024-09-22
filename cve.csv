@@ -1,0 +1,402 @@
+<?xml version="1.0"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="keywords"
+            content="CVE, CVE List, CVE Records, CVE ID, CVE IDs, CVE Identifier, CVE Identifiers, CVE ID number, CVE ID numbers, CVE number, CVE numbers, CVE Record, CVE Records, CVE Entry, CVE Entries, CVE name, CVEs, CVE-, Reserved but Public, RBP, CVE Numbering Authority, CVE Naming Authority, CNA, CNAs, Root, Top-Level Root, TL-Root, CNA of Last Resort, CNA-LR, Secretariat, Authorized Data Publisher, ADP, CVE Adoption, CVE Automation, CVE Services, CVE JSON, National Vulnerability Database, NVD, Common Vulnerability Scoring System, CVSS, scoring, severity secoring, standard, standards, vulnerability, vulnerabilities, vulnerability management, vulnerability id, vulnerability name, vulnerability naming, vulnerability naming scheme, software flaw, software coding error, software bug, software bugs, firmware, network security, cybersecurity, cyber security, cyber security standards, cybersecurity standards, infosec, information security, information security standards, network security standards, community standards, vulnerability database, security advisory, security advisories, security alerts, vulnerability alerts, zero-day, 0-day, vulnerability assessment and remediation, vulnerability assessment service, vulnerability notification service, intrusion detection service, IDS, intrusion detection and management, intrusion monitoring and response service, intrusion prevention service, IPS, incident management, data/event correlation, firewall, patch management, patches, patching, enterprise information security architecture, SIM, security information management, cloud, cloud security, policy compliance, information security automation, cybersecurity automation, CVE Working Groups, CVE Board, DHS, Cybersecurity and Infrastructure Security Agency, CISA" />
+        <meta name="description"
+            content="The mission of the CVE® Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities." />
+        <meta name="google-site-verification" content="Dk82cCXTLpuQQok4nbpDBxZDpA3ltnSAnnhMqY1XBxI" />
+        <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37948909-1"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-37948909-1');
+            </script>
+  
+        <link href="/css/main.css" rel="stylesheet" type="text/css" />
+        <script src="/includes/jquery-3.2.1.min.js"></script>
+        <script src="/includes/jquery-migrate-3.0.0.min.js"></script>
+		<script src="/includes/browserheight.js" language="JavaScript" type="text/javascript"></script>
+        <script src="https://cmp.osano.com/AzyhULTdPkqmy4aDN/fab1add1-e069-4b98-8ba9-cbdc6401a635/osano.js"></script>
+        <link href="/css/print.css" rel="stylesheet" media="print" type="text/css" />
+        <title>CVE -
+
+CVE
+</title>
+    </head>
+    <body>
+        <div id="Page"> 
+            <!--Header-->
+            <div id="Header">
+                <table style="width:100%;border-collapse:collapse" summary="Header Layout Table">
+
+                    <tr> 
+                        <td style="vertical-align:middle; text-align:left; white-space:nowrap; padding-top:5px; padding-bottom:5px">
+                            <div style="width:170px;">
+                                <a class="none" href="/index.html">
+                                    <img src="/images/cvelogobanner.png" width="206" height="55" alt="CVE" style="border:0" />
+                                </a>
+                                </div>
+                        </td>
+        <td style="vertical-align:top;text-align:center;width:100%">
+                             
+        <div class="alignright" style="float:right;vertical-align:top;">
+        <table style="text-align:right"></table>
+				
+		</div> 
+
+        <!--Page-->
+        						
+        					
+<head>
+<style>
+.dropbtn {
+    background-color: #ffffff;
+    color: #C8C8C8;
+    padding: 0px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    text-align: left;
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    font-size: 11px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #cccccc;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="dropdown">
+  <a target="_blank" href="https://www.cve.org/"><button class="dropbtn">CVE List&#9662;</button></a>
+  <div class="dropdown-content">
+    <strong><a href="/cve/search_cve_list.html">CVE List Search</a></strong>
+    <a href="https://www.cve.org/ResourcesSupport/FAQs#pc_cve_list_basicssearch_cve">Search Tips</a>
+    <strong><a href="https://cveform.mitre.org/">CVE Request Web Form</a></strong>
+    <a href="https://www.cve.org/ResourcesSupport/FAQs#pc_cve_request_web_form">Web Form Help</a>
+    <a href="https://www.cve.org/ResourcesSupport/FAQs#pc_cve_request_web_formweb_form_encrypt_requests">PGP Key</a> 
+    <strong><a href="https://www.cve.org/Legal/TermsOfUse">Terms of Use</a></strong>
+  </div>  
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="dropdown">
+  <a href="https://www.cve.org/ProgramOrganization/CNAs"><button class="dropbtn">CNAs&#9662;</button></a>
+  <div class="dropdown-content">
+    <strong><a href="https://www.cve.org/ProgramOrganization/CNAs">CVE Numbering Authorities (CNAs)</a></strong>
+    <strong><a href="https://www.cve.org/PartnerInformation/Partner#HowToBecomeAPartner">How to Become a CNA</a></strong>
+  </div>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="dropdown">
+  <a href="https://www.cve.org/ProgramOrganization/WorkingGroups"><button class="dropbtn">WGs&#9662;</button></a>
+  <div class="dropdown-content">
+        <strong><a href="https://www.cve.org/ProgramOrganization/WorkingGroups">CVE Working Groups</a></strong>  
+  </div>
+  </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="dropdown">
+  <a href="https://www.cve.org/ProgramOrganization/Board"><button class="dropbtn">Board&#9662;</button></a>
+  <div class="dropdown-content">
+    <strong><a href="https://www.cve.org/ProgramOrganization/Board">CVE Board</a></strong>
+    <a href="/community/board/archive.html#meeting_summaries">Meeting Archives</a>    
+    <a href="https://www.cve.org/ProgramOrganization/Board#Resources">Email Archives</a>
+  </div>
+  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="dropdown">
+  <a href="https://www.cve.org/About/Overview"><button class="dropbtn">About&#9662;</button></a>
+  <div class="dropdown-content">
+    <strong><a href="https://www.cve.org/About/Overview">About CVE</a></strong>
+  </div>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="dropdown">
+  <a href="https://www.cve.org/Media/News/AllNews"><button class="dropbtn">News&#9662;</button></a>
+  <div class="dropdown-content">
+    <strong><a href="https://www.cve.org/Media/News/AllNews">News, Blogs &amp; Podcasts</a></strong>
+  </div> 
+  </div>
+</div>
+</body>
+                                    
+                                    
+        <!--Page-->
+        						
+        						</div>
+
+                                    
+                                <div style="width:50%;"><p><a href="/index.html"></a></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="vertical-align:top">
+                        <!--NavBar-->
+                        <div id="NavBar" class="noprint">
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="NavSection"><a href="/cve/search_cve_list.html">Search CVE List</a></div> 
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="NavSection"><a href="https://www.cve.org/Downloads">Downloads</a></div>  
+                        &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <div class="NavSection"><a href="https://www.cve.org/ResourcesSupport/FAQs#pc_cve_list_basicscve_list_data_feeds">Data Feeds</a></div>  
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="NavSection"><a href="https://www.cve.org/ReportRequest/ReportRequestForNonCNAs#UpdateCVERecord">Update a CVE Record</a> </div>  
+                        &nbsp; &nbsp; &nbsp; &nbsp;   
+                        <div class="NavSection"><a href="https://www.cve.org/ReportRequest/ReportRequestForNonCNAs#RequestCVEID">Request CVE IDs</a></div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;     
+                        </div>
+                        <!--/NavBar-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="vertical-align:top">
+                            <!--HeaderBar-->
+
+                            <div id="HeaderBar" class="noprint"> 
+                            TOTAL CVE Records: <a target="_blank" href="https://www.cve.org/">
+                           
+                            240830</a>
+                            <br><br>
+NOTICE: <span class="ltredbold">Transition to the all-new CVE website at <a href="https://www.cve.org/">WWW.CVE.ORG</a> and <a href="https://www.cve.org/Media/News/item/blog/2022/10/06/CVE-Records-Are-Now-Displayed">CVE Record Format JSON</a> are underway.</span>
+<br><br>
+NOTICE: <span class="ltredbold">Support for the legacy CVE download formats <a href="https://www.cve.org/Media/News/item/blog/2024/07/02/Legacy-CVE-Download-Formats-No-Longer-Supported">ended on June 30, 2024</a>.<br/>New CVE List download format is <a href="https://www.cve.org/Media/News/item/blog/2023/03/29/CVE-Downloads-in-JSON-5-Format">available now</a> on CVE.ORG.</span>
+                            <br><br>
+                            </div></div>
+                            <!--/HeaderBar-->
+                        </td>
+                    </tr>
+                </table>
+                
+                	<style type="text/css">
+.alignright {
+	text-align: right;
+	font-size: x-small;
+}
+</style>
+
+                <div id="BreadCrumbs" class="noprint">
+
+
+                    &nbsp;</div>
+            </div>
+            <!--/Header-->
+            <!-- begin section menu -->
+            <div id="LeftPane">
+
+       </div>
+            <!-- end section menu -->
+            <!-- begin content pane -->
+	 <div  style="width: 100%; left: 0px; position: relative; right: 0px; top: 0px;">
+<!--begin Main Content--> 
+
+<br>
+
+<div style="width:100%; text-align: center; font-style: bold; font-size: 90%; color: grey; position: bottom: 5px; top: 5px; letter-spacing: 1px; word-spacing: 2px;">
+<p>The mission of the CVE&reg; Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities.</p>
+
+</div>
+<br>
+
+</div>
+
+
+<table cellpadding="1" cellspacing="1" width="100%" style="padding-bottom:5px;padding-top:8px">
+<tr>
+
+<td class="callout" style="width:31%;vertical-align:top; height: 200px;">    
+<div id="LatestNews" class="tablehead" style="text-decoration:none"><a target="_blank" href="https://www.cve.org/Media/News/AllNews" class="nounderline" title="CVE News"><span class="whitefont">CVE News</span></a></div>
+<p style="padding-top:0px;">News has moved to the new CVE website.</p>
+
+<div style="font-size:100%;text-align:right;padding-top:0px">
+	<a target="_blank" href="https://www.cve.org/Media/News/AllNews">Go to new News page &gt;&gt;</a>
+<br><br>
+<br>
+<div id="CVE Podcast" class="tablehead" style="text-decoration:none"><a target="_blank" href="https://www.cve.org/Media/News/Podcasts" class="nounderline" title="CVE Podcast"><span class="whitefont">CVE Podcast</span></a></div>
+<div style="font-size:100%;text-align:left;padding-top:3px">
+<p style="padding-top:0px;">Podcasts have moved to the new CVE website.</p>
+
+<div style="font-size:100%;text-align:right;padding-top:12px">
+	<a target="_blank" href="https://www.cve.org/Media/News/Podcasts">Go to new Podcast page &gt;&gt;</a></div>
+<br><br>
+<br>
+<div id="CVE Blog" class="tablehead" style="text-decoration:none"><a target="_blank" href="https://www.cve.org/Media/News/Blogs" class="nounderline" title="CVE Blog"><span class="whitefont">CVE Blog</span></a></div>
+<div style="font-size:100%;text-align:left;padding-top:3px">
+<p style="padding-top:0px;">Blogs have moved to the new CVE website.</p>
+
+<div style="font-size:100%;text-align:right;padding-top:12px">
+	<a target="_blank" href="https://www.cve.org/Media/News/Blogs">Go to new Blogs page &gt;&gt;</a></div></div>
+
+<td style="width:1%; vertical-align:top; height: 272px;">
+</td>
+<td class="callout2" style="width:39%; vertical-align:top; height: 200px;">
+<div id="Become a CNA" class="tablehead"><a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#HowToBecomeAPartner" class="nounderline" title="Become a CNA"><span class="whitefont">Become a CNA</span></a></div>
+
+<div>
+<table style="width:100%;" cellpadding="1" cellspacing="1">
+<tr>
+
+<td style="verticalalign:top; padding-top:0px; padding-right;20px;">
+<a target="_blank" href="https://www.cve.org/ProgramOrganization/CNAs">CVE Numbering Authorities</a>,<br> or “CNAs,” are essential to<br> the CVE Program’s success<br> and every <a target="_blank" href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord">CVE Record</a> is added<br> to the <a target="_blank" href="https://www.cve.org/">CVE List</a> by a CNA.
+<br><br>
+<strong>Join today!</strong>
+    <ul>
+      <li><a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#CNA">Business benefits</a></li>
+      <li><a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#CNA">No fee or contract</a></li>
+      <li><a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#CNA">Few requirements</a></li>
+      <li><a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#CNA">Easy to join</a></li>
+    </ul>
+<br><br><br>
+</td>
+
+<td style="font-size:89%; text-align:center; verticalalign:top; padding-bottom:0px;">
+<strong><a target="_blank" href="https://www.cve.org/ProgramOrganization/CNAs#CNAProgramGrowth">Go to new CVE website</a></strong><br><br>
+<div>
+<a href="/cve/cna.html#become_a_cna"><img src="/images/cna_world_map/CNA_World_Map_October_2021.png" align:right; width="218" height="180" alt="CNAs World Map - October 2021"/ ></a>
+</div>
+<br><br><br>
+</td>
+
+</tr>
+</table>
+</div>
+
+
+<div style="font-size:100%;text-align:right;padding-top:0px">
+        <a target="_blank" href="https://www.cve.org/PartnerInformation/Partner#HowToBecomeAPartner">Learn How to Become a CNA &gt;&gt;&gt;</a><br><br>
+        <a target="_blank" href="https://www.cve.org/ResourcesSupport/Resources#CVENumberingAuthorities/">Watch CNA Onboarding Videos &gt;&gt;</a>
+</div>
+
+
+
+
+<td style="width:1%; vertical-align:top; height: 272px;">
+</td>
+<td class="callout2" style="width:29%; vertical-align:top; height: 200px;">
+<div id="New CVE Records" class="tablehead" style="text-decoration:none"><a href="/cve/data_feeds.html" class="nounderline" title="New CVE Records"><span class="whitefont">Newest CVE Records Feed</span></a></div>
+<div style="font-size:100%;text-align:left;padding-top:3px">
+<p style="padding-top:0px;">Feed of newly published CVE Records on X (formerly Twitter).</p>
+
+<div style="font-size:100%;text-align:right;padding-top:12px">
+	<a target="_blank" href="https://twitter.com/CVEnew/">Go to new @CVEnew &gt;&gt;</a></div>
+<br><br>
+<br>
+<div id="New &amp; Updated CVE Records" class="tablehead" style="text-decoration:none"><a target="_blank" href="https://github.com/CVEProject/cvelistV5/releases" class="nounderline" title="News &amp; Updated CVE Records"><span class="whitefont">New &amp; Updated CVE Records</span></a></div>
+<div style="font-size:100%;text-align:left;padding-top:3px">
+<p style="padding-top:0px;">cvelistV5 bulk downloads repository on GitHub includes a “Releases” feed of new &amp; updated CVE Records.</p>
+
+<div style="font-size:100%;text-align:right;padding-top:12px">
+	<a target="_blank" href="https://github.com/CVEProject/cvelistV5/releases">Go to cvelistV5 “Releases” page &gt;&gt;</a></div></div>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+
+<br><br><br>
+
+
+<style type="text/css">
+.nounderline {
+	text-decoration: none;
+}
+.whitefont {
+	color: #FFFFFF;
+}
+.marginbottom {
+	margin-bottom: 50px;
+}
+</style>
+
+
+<!--end Main Content-->
+
+            </div><!-- end content pane -->
+        </div>
+        <!--/Page-->
+                <!--Footer-->
+                <div id="FootPane" class="noprint">
+                <div id="footbar">
+                    <span style="font-weight:bold">Page Last Updated or Reviewed:</span> 
+
+August 14, 2023
+
+</div>
+    <div>
+       <div id="Footer">
+            <table>
+                <tr>
+                    <td>
+                    <div class="noprint" style="font-size:70%; text-align:center; padding-top:0px; padding-bottom:3px;">
+                           <b>
+                            <a href="https://www.cve.org/">Go to CVE.ORG website</a> | 
+                            <a target="_blank" href="https://www.cve.org/Legal/TermsOfUse">Terms of Use</a> |
+                            <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Manage Cookies</a> | 
+                            <a href="/cookie_notice.html">Cookie Notice</a> |         
+                            <a target="_blank" href="https://www.cve.org/Legal/PrivacyPolicy">Privacy Policy</a> |
+                            <a target="_blank" href="https://cveform.mitre.org/">Contact</a>  
+                         
+                    </td> 
+                </tr>
+             </div>
+                 <tr>
+                    <td>                       
+                         <p>Use of the CVE&reg; List and the associated references from this website are subject to the <a target="_blank" href="https://www.cve.org/Legal/TermsOfUse">terms of use</a>. 
+                             CVE is sponsored by the <a href="https://www.dhs.gov/" target="_blank">U.S. Department of Homeland Security</a> (DHS) <a href="https://www.dhs.gov/cisa/cybersecurity-division/" target="_blank">Cybersecurity and Infrastructure Security Agency</a> (CISA). Copyright &copy; 1999&ndash;2024, <a href="https://www.mitre.org/" target="_blank">The MITRE Corporation</a>. CVE and the CVE logo are registered trademarks of The MITRE Corporation.</p>
+                        </td>        
+                  </tr>
+                  </table>
+            <!--/Footer-->
+        </div>
+        </div>
+        
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMM9G4KRDD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WMM9G4KRDD');
+</script>
+<!-- End Google Analytics -->
+
+    </body>
+</html>
+
