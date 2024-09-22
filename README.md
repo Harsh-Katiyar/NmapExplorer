@@ -6,8 +6,6 @@ NmapExplorer is a powerful network scanning tool that leverages the capabilities
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Example](#example)
 
 ## Features
 
@@ -23,3 +21,5 @@ Follow these steps to install NmapExplorer on your local machine:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Harsh-Katiyar/NmapExplorer.git
+   cd NmapExplorer
+
