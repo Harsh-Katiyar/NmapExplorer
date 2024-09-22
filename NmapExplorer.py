@@ -1,197 +1,113 @@
 import os
-import platform
 import re
+import platform
 import requests
 import zipfile
 import io
-import subprocess
+from tabulate import tabulate  # Ensure to install this via pip
 
-
-def get_default_nmap_scripts_dir():
-    """Detects the operating system and returns the default Nmap scripts directory."""
-    current_os = platform.system()
-    if current_os in ["Linux", "Darwin"]:  # Darwin refers to macOS
-        return "/usr/share/nmap/scripts/"
-    elif current_os == "Windows":
-        return "C:\\Program Files (x86)\\Nmap\\scripts\\"
+# Function to detect OS
+def detect_os():
+    current_os = platform.system().lower()
+    if "windows" in current_os:
+        print("Running on Windows")
+    elif "linux" in current_os:
+        print("Running on Linux")
+    elif "darwin" in current_os:  # Darwin is macOS
+        print("Running on macOS")
     else:
+        print(f"Unsupported OS: {current_os}")
+    return current_os
+
+# Function to search for a specific file by name in the extracted directory and subdirectories
+def search_file_in_directory(directory, file_name):
+    file_name = file_name.lower()  # Make the search case-insensitive
+    found_files = []
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file_name in file.lower():
+                found_files.append(os.path.join(root, file))  # Full path
+    return found_files
+
+# Function to download and extract the zip file
+def download_and_extract_zip(url, extract_to='.'):
+    try:
+        print(f"Downloading zip file from {url}...")
+        response = requests.get(url, stream=True)
+        if response.status_code == 200:
+            print("Download successful. Extracting...")
+            with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+                z.extractall(extract_to)
+            abs_extract_path = os.path.abspath(extract_to)
+            print(f"Extraction complete. Files extracted to: {abs_extract_path}")
+            return abs_extract_path  # Return the absolute path to the extracted directory
+        else:
+            print(f"Failed to download zip file. Status code: {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"An error occurred during download or extraction: {e}")
         return None
 
-
-def get_user_scripts_dir(default_dir):
-    """Allows the user to specify a custom Nmap scripts directory or use the default."""
-    print(f"Default Nmap scripts directory detected: {default_dir}")
-    use_default = input("Do you want to use the default scripts directory? (y/n): ").strip().lower()
-    if use_default == 'y':
-        return default_dir
-    else:
-        custom_dir = input("Enter the full path to your Nmap scripts directory: ").strip()
-        if os.path.exists(custom_dir):
-            return custom_dir
-        else:
-            print(f"Custom directory not found: {custom_dir}")
-            return None
-
-
-def extract_script_metadata(script_path):
-    """Extracts metadata (categories and description) from an NSE script."""
-    metadata = {'categories': [], 'description': ''}
-    try:
-        with open(script_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-            categories = re.findall(r'categories\s*=\s*{([^}]+)}', content)
-            if categories:
-                categories = [cat.strip().strip('"').strip("'") for cat in categories[0].split(',')]
-                metadata['categories'] = categories
-            description = re.search(r'description\s*=\s*"([^"]+)"', content)
-            if description:
-                metadata['description'] = description.group(1)
-    except Exception as e:
-        print(f"Error reading {script_path}: {e}")
-    return metadata
-
-
-def clone_repositories():
-    """Clones the Nmap-vulners and vulscan repositories."""
-    repos = [
-        "https://github.com/vulnersCom/nmap-vulners.git",
-        "https://github.com/scipag/vulscan.git"
-    ]
-    for repo in repos:
-        try:
-            print(f"Cloning {repo}...")
-            subprocess.run(["git", "clone", repo], check=True)
-        except Exception as e:
-            print(f"Error cloning {repo}: {e}")
-
-
-def download_additional_scripts():
-    """Downloads additional NSE scripts from vulnscan and nmap-vulners repositories."""
-    print("Cloning additional scripts from vulnscan and nmap-vulners...")
-    clone_repositories()
-
-
-def download_databases():
-    """Downloads pre-installed vulnerability databases."""
-    databases = {
-        "scipvuldb.csv": "https://vuldb.com",
-        "cve.csv": "https://cve.mitre.org",
-        "securityfocus.csv": "https://www.securityfocus.com/bid/",
-        "xforce.csv": "https://exchange.xforce.ibmcloud.com/",
-        "exploitdb.csv": "https://www.exploit-db.com",
-        "openvas.csv": "http://www.openvas.org",
-        "securitytracker.csv": "https://www.securitytracker.com",  # End-of-life
-        "osvdb.csv": "http://www.osvdb.org"  # End-of-life
-    }
-
-    print("Available databases to download:")
-    for db in databases:
-        print(f"{db} - {databases[db]}")
-
-    choice = input("Do you want to download the databases? (y/n): ").strip().lower()
+# Function to prompt the user to download and configure
+def prompt_for_download():
+    choice = input("Would you like to download and configure the tool? (y/n): ").lower()
     if choice == 'y':
-        for db, url in databases.items():
-            response = requests.get(url)
-            if response.ok:
-                with open(db, 'wb') as f:
-                    f.write(response.content)
-                print(f"{db} downloaded successfully.")
-            else:
-                print(f"Failed to download {db}.")
+        download_url = "https://github.com/Harsh-Katiyar/NmapExplorer/blob/main/nmap.zip?raw=true"
+        extract_path = download_and_extract_zip(download_url, extract_to='nmap_tool')
+        if extract_path:
+            print(f"\nExtracted files are located at: {extract_path}")
+            print("Please follow the README for configuration steps, if any.")
+            return extract_path
     else:
-        print("Database download skipped.")
+        print("Skipping download and configuration.")
+        return None
 
+# Function to display results in a tabular format based on user choice
+def display_results(results, show_full_path):
+    if results:
+        if show_full_path:
+            headers = ["Index", "File Path"]
+            table_data = [(i + 1, result) for i, result in enumerate(results)]
+        else:
+            headers = ["Index", "File Name"]
+            table_data = [(i + 1, os.path.basename(result)) for i, result in enumerate(results)]
 
-def search_nmap_scripts(keyword, filter_type=None, filter_value=None):
-    """Searches Nmap scripts based on a keyword and optional filters."""
-    default_dir = get_default_nmap_scripts_dir()
-    if not default_dir:
-        print(f"Unsupported operating system: {platform.system()}")
-        return
-
-    nmap_scripts_dir = get_user_scripts_dir(default_dir)
-    if not nmap_scripts_dir:
-        return
-
-    if not os.path.exists(nmap_scripts_dir):
-        print(f"Nmap scripts directory not found: {nmap_scripts_dir}")
-        return
-
-    nse_files = [f for f in os.listdir(nmap_scripts_dir) if f.endswith('.nse')]
-
-    # Add additional directories for cloned repos
-    additional_dirs = ["nmap-vulners", "vulscan"]
-    for additional_dir in additional_dirs:
-        if os.path.exists(additional_dir):
-            nse_files += [os.path.join(additional_dir, f) for f in os.listdir(additional_dir) if f.endswith('.nse')]
-
-    matched_scripts = []
-
-    for script in nse_files:
-        script_path = os.path.join(nmap_scripts_dir, script)
-        metadata = extract_script_metadata(script_path)
-
-        is_match = False
-
-        if keyword.lower() in script.lower() or (metadata['description'] and keyword.lower() in metadata['description'].lower()):
-            is_match = True
-
-        if is_match:
-            if filter_type and filter_value:
-                if filter_type == 'category':
-                    if filter_value.lower() in [cat.lower() for cat in metadata['categories']]:
-                        matched_scripts.append({'name': script, 'categories': metadata['categories'], 'description': metadata['description']})
-                elif filter_type == 'description':
-                    if filter_value.lower() in metadata['description'].lower():
-                        matched_scripts.append({'name': script, 'categories': metadata['categories'], 'description': metadata['description']})
-            else:
-                matched_scripts.append({'name': script, 'categories': metadata['categories'], 'description': metadata['description']})
-
-    unique_scripts = {script['name']: script for script in matched_scripts}.values()
-
-    if unique_scripts:
-        print(f"\nScripts matched with keyword '{keyword}':\n")
-        for script in unique_scripts:
-            print(f"Script Name   : {script['name']}")
-            print(f"Categories    : {', '.join(script['categories']) if script['categories'] else 'N/A'}")
-            print(f"Description   : {script['description'] if script['description'] else 'N/A'}\n")
+        print("\nSearch Results:")
+        print(tabulate(table_data, headers=headers, tablefmt="grid"))
     else:
-        print(f"\nNo scripts found matching the keyword '{keyword}' with the specified filters.")
+        print("No matches found.")
 
-
+# Main function
 def main():
-    print("=== Nmap NSE Script Search Utility ===\n")
+    # Detect OS
+    current_os = detect_os()
 
-    download_scripts = input("Do you want to download and use additional scripts from vulnscan and nmap-vulners? (y/n): ").strip().lower()
-    if download_scripts == 'y':
-        download_additional_scripts()
+    # Prompt for download and configure
+    extract_path = prompt_for_download()
 
-    download_databases()
+    # If the user chose not to download, ask for the file name and path
+    if not extract_path:
+        file_path = input("Enter the full path of the directory to search in: ").strip()
+        file_name = input("Enter the file name to search for: ").strip()
 
-    keyword = input("Enter a keyword to search for Nmap scripts: ").strip()
-    if not keyword:
-        print("Keyword cannot be empty.")
-        return
+        # Search for the file in the specified directory and its subdirectories
+        print(f"\nSearching for file '{file_name}' in '{file_path}'...\n")
+        results = search_file_in_directory(file_path, file_name)
 
-    apply_filter = input("Do you want to apply additional filters? (y/n): ").strip().lower()
-    filter_type = None
-    filter_value = None
+    else:
+        # User input for the file name to search in the extracted directory
+        file_name = input("Enter the file name to search: ").strip()
 
-    if apply_filter == 'y':
-        print("\nFilter Options:")
-        print("1. Category")
-        print("2. Description")
-        filter_choice = input("Choose a filter type (1/2): ").strip()
+        # Search for the file in the extracted directory and subdirectories
+        print(f"\nSearching for file '{file_name}' in the extracted folder...\n")
+        results = search_file_in_directory(extract_path, file_name)
 
-        if filter_choice == '1':
-            filter_type = 'category'
-            filter_value = input("Enter the category to filter by (e.g., vuln, discovery): ").strip()
-        elif filter_choice == '2':
-            filter_type = 'description'
-            filter_value = input("Enter a description keyword to filter by: ").strip()
+    # Ask user how they want to display results
+    display_choice = input("How would you like to display the results? (1: Full Paths, 2: File Names Only): ").strip()
+    show_full_path = display_choice == '1'
 
-    search_nmap_scripts(keyword, filter_type, filter_value)
+    # Display results based on user's choice
+    display_results(results, show_full_path)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

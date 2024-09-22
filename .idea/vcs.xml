@@ -4,5 +4,7 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/nmap/scripts/nmap-vulners" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/nmap/scripts/vulscan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nmap_tool/nmap/scripts/nmap-vulners" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nmap_tool/nmap/scripts/vulscan" vcs="Git" />
   </component>
 </project>
